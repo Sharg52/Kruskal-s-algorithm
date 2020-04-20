@@ -7,7 +7,7 @@ int main()
 	struct Edge Edge;
 	struct Graph Graph;
 	struct Tree Tree;
-	printf("enter the number of vertices in the graph");
+	printf("enter the number of vertices in the graph\n");
 	scanf("%d", &Graph.number_of_vertices);
 	int max_number_of_edges = (Graph.number_of_vertices * (Graph.number_of_vertices - 1)) / 2;
 	struct Edge* edges = malloc(max_number_of_edges * sizeof(Edge));
@@ -20,9 +20,7 @@ int main()
 	sort_edges(Graph);
 	Tree.number_of_edges = 0;
 	Tree=algoritm(Graph,Tree);
-	for (int i = 0; i < Tree.number_of_edges; i++)
-	{
-		printf("%d\n", Tree.edges[i].value);
-	}
+	Tree.number_of_vertices = Graph.number_of_vertices;
+	print_tree(Tree);
 	return 0;
 }
